@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({
   body, 
   actionLabel, 
   footer, 
-  disabled,
+  disabled, 
   secondaryAction,
   secondaryActionLabel
 }) => {
