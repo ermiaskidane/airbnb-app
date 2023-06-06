@@ -24,15 +24,15 @@ export default async function getCurrentUser() {
     if (!currentUser) {
       return null;
     }
-    return currentUser;
+    // return currentUser;
 
-    // return {
-    //   ...currentUser,
-    //   createdAt: currentUser.createdAt.toISOString(),
-    //   updatedAt: currentUser.updatedAt.toISOString(),
-    //   emailVerified: 
-    //     currentUser.emailVerified?.toISOString() || null,
-    // };
+    return {
+      ...currentUser,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+      emailVerified: 
+        currentUser.emailVerified?.toISOString() || null,
+    };
   } catch (error: any) {
     // since this is not an api call we simply return the null 
     // cz we connected directly with server mongodb directly through server component
