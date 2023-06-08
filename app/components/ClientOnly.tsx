@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 interface ClientOnlyProps {
   children: React.ReactNode;
 }
-
+// this function deals with the hydration issue
 const ClientOnly: React.FC<ClientOnlyProps> = ({ 
   children
 }) => {
