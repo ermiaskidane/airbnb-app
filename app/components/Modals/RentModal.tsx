@@ -16,11 +16,12 @@ import useRentModal from '@/app/hooks/useRentModal';
 import Modal from "./Modal";
 // import Counter from "../inputs/Counter";
 import CategoryInput from '../inputs/CategoryInput';
-// import CountrySelect from "../inputs/CountrySelect";
+import CountrySelect from "../inputs/CountrySelect";
 import { categories } from '../navbar/Categories';
 // import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
+// import Map from "../Map"
 
 enum STEPS {
   CATEGORY = 0,
@@ -30,7 +31,7 @@ enum STEPS {
   DESCRIPTION = 4,
   PRICE = 5,
 }
-
+ 
 const RentModal = () => {
   const router = useRouter();
   const rentModal = useRentModal();
@@ -68,9 +69,11 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount');
   const imageSrc = watch('imageSrc');
 
-  // const Map = useMemo(() => dynamic(() => import('../Map'), { 
-  //   ssr: false 
-  // }), [location]);
+  // as leaflet not support in react we have  
+  // to import it using dynamic feature 
+  const Map = useMemo(() => dynamic(() => import('../Map'), { 
+    ssr: false 
+  }), [location]);
 
 
   //  cz setValue by it self doesnt rerender
@@ -166,21 +169,21 @@ const RentModal = () => {
     </div>
   )
 
-  // if (step === STEPS.LOCATION) {
-  //   bodyContent = (
-  //     <div className="flex flex-col gap-8">
-  //       <Heading
-  //         title="Where is your place located?"
-  //         subtitle="Help guests find you!"
-  //       />
-  //       <CountrySelect 
-  //         value={location} 
-  //         onChange={(value) => setCustomValue('location', value)} 
-  //       />
-  //       <Map center={location?.latlng} />
-  //     </div>
-  //   );
-  // }
+  if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Where is your place located?"
+          subtitle="Help guests find you!"
+        />
+        <CountrySelect 
+          value={location} 
+          onChange={(value) => setCustomValue('location', value)} 
+        />
+        <Map center={location?.latlng} />
+      </div>
+    );
+  }
 
   // if (step === STEPS.INFO) {
   //   bodyContent = (
@@ -283,7 +286,8 @@ const RentModal = () => {
       isOpen={rentModal.isOpen}
       title="Airbnb your home!"
       actionLabel={actionLabel}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={onNext}
+      // onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       onClose={rentModal.onClose}
