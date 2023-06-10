@@ -1,5 +1,6 @@
 'use client';
-
+// best reference for CldUploadWidget
+// https://next-cloudinary.spacejelly.dev/components/clduploadwidget/basic-usage
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { useCallback } from "react";

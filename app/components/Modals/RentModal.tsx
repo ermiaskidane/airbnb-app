@@ -99,26 +99,27 @@ const RentModal = () => {
   // work with FieldValues
   // recives: data
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // if (step !== STEPS.PRICE) {
-    //   return onNext();
-    // }
+    if (step !== STEPS.PRICE) {
+      return onNext();
+    }
     
-    // setIsLoading(true);
+    setIsLoading(true);
 
-    // axios.post('/api/listings', data)
-    // .then(() => {
-    //   toast.success('Listing created!');
-    //   router.refresh();
-    //   reset();
-    //   setStep(STEPS.CATEGORY)
-    //   rentModal.onClose();
-    // })
-    // .catch(() => {
-    //   toast.error('Something went wrong.');
-    // })
-    // .finally(() => {
-    //   setIsLoading(false);
-    // })
+    axios.post('/api/listings', data)
+    .then(() => {
+      toast.success('Listing created!');
+      router.refresh();
+      reset();
+      // reseting the steps
+      setStep(STEPS.CATEGORY)
+      rentModal.onClose();
+    })
+    .catch(() => {
+      toast.error('Something went wrong.');
+    })
+    .finally(() => {
+      setIsLoading(false);
+    })
   }
 
   const actionLabel = useMemo(() => {
@@ -231,54 +232,54 @@ const RentModal = () => {
     )
   }
 
-  // if (step === STEPS.DESCRIPTION) {
-  //   bodyContent = (
-  //     <div className="flex flex-col gap-8">
-  //       <Heading
-  //         title="How would you describe your place?"
-  //         subtitle="Short and sweet works best!"
-  //       />
-  //       <Input
-  //         id="title"
-  //         label="Title"
-  //         disabled={isLoading}
-  //         register={register}
-  //         errors={errors}
-  //         required
-  //       />
-  //       <hr />
-  //       <Input
-  //         id="description"
-  //         label="Description"
-  //         disabled={isLoading}
-  //         register={register}
-  //         errors={errors}
-  //         required
-  //       />
-  //     </div>
-  //   )
-  // }
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+        />
+        <Input
+          id="title"
+          label="Title"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+        <hr />
+        <Input
+          id="description"
+          label="Description"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
+    )
+  }
 
-  // if (step === STEPS.PRICE) {
-  //   bodyContent = (
-  //     <div className="flex flex-col gap-8">
-  //       <Heading
-  //         title="Now, set your price"
-  //         subtitle="How much do you charge per night?"
-  //       />
-  //       <Input
-  //         id="price"
-  //         label="Price"
-  //         formatPrice 
-  //         type="number" 
-  //         disabled={isLoading}
-  //         register={register}
-  //         errors={errors}
-  //         required
-  //       />
-  //     </div>
-  //   )
-  // }
+  if (step === STEPS.PRICE) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Now, set your price"
+          subtitle="How much do you charge per night?"
+        />
+        <Input
+          id="price"
+          label="Price"
+          formatPrice 
+          type="number" 
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
+    )
+  }
 
   return (
     <Modal
@@ -286,8 +287,8 @@ const RentModal = () => {
       isOpen={rentModal.isOpen}
       title="Airbnb your home!"
       actionLabel={actionLabel}
-      onSubmit={onNext}
-      // onSubmit={handleSubmit(onSubmit)}
+      // onSubmit={onNext}
+      onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       onClose={rentModal.onClose}
