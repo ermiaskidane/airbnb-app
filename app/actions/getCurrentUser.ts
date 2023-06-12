@@ -5,7 +5,7 @@ import prisma from "@/app/libs/prismadb";
 
 export async function getSession() {
   return await getServerSession(authOptions)
-}
+} 
 
 export default async function getCurrentUser() {
   try {

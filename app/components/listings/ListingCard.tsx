@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 
 import useCountries from "@/app/hooks/useCountries";
 import { 
-  // SafeListing, 
+  SafeListing, 
   // SafeReservation, 
   SafeUser 
 } from "@/app/types";
@@ -18,7 +18,8 @@ import Button from "../Button";
 import ClientOnly from "../ClientOnly";
 
 interface ListingCardProps {
-  data: Listing;
+  data: SafeListing;
+  // data: Listing;
   reservation?: Reservation;
   // data: SafeListing;
   // reservation?: SafeReservation;
@@ -39,8 +40,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
+  // console.log(data)
   const { getByValue } = useCountries();
-
+ 
   const location = getByValue(data.locationValue);
 
   const handleCancel = useCallback(

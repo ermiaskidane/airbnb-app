@@ -1,8 +1,10 @@
 import { Listing, Reservation, User } from "@prisma/client";
 
-// export type SafeListing = Omit<Listing, "createdAt"> & {
-//   createdAt: string;
-// };
+// this type/index.ts file is dealing for the "date object error"
+// occurs when server componenet pass a date to a client component
+export type SafeListing = Omit<Listing, "createdAt"> & {
+  createdAt: string;
+};
 
 // export type SafeReservation = Omit<
 //   Reservation, 
