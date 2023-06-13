@@ -134,7 +134,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             label={actionLabel} 
             onClick={handleCancel}
           />
-        )}
+         )}
       </div>
     </div>
    );

@@ -4,6 +4,7 @@ import L from 'leaflet';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 
 // as leaflet is not supported in react we have to import the following
+// and style in global.css 
 import 'leaflet/dist/leaflet.css'
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
