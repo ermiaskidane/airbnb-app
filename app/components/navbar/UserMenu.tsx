@@ -14,6 +14,7 @@ import { SafeUser } from "@/app/types";
 // import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import { useRouter } from "next/navigation";
 
 
 interface UserMenuProps {
@@ -23,7 +24,7 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({
   currentUser  
 }) => {
-  // const router = useRouter();
+  const router = useRouter();
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
@@ -74,15 +75,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={() => {}}
+                  onClick={() => router.push("/trips")}
                 />
                 <MenuItem 
                   label="My favorites" 
-                  onClick={() => {}}
+                  onClick={() =>router.push("/favorites")}
                 />
                 <MenuItem 
                   label="My reservations" 
-                  onClick={() => {}}
+                  onClick={() => router.push("/reservations")}
                 />
                 <MenuItem 
                   label="My properties" 

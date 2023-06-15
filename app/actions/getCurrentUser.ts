@@ -25,7 +25,7 @@ export default async function getCurrentUser() {
       return null;
     }
     // return currentUser;
-
+ 
     return {
       ...currentUser,
       createdAt: currentUser.createdAt.toISOString(),

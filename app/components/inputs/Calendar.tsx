@@ -20,7 +20,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   onChange,
   disabledDates
 }) => {
-  // console.log("dateRange", onChange)
+  console.log("dateRange", onChange)
   return ( 
     <DateRange
       rangeColors={['#262626']}
@@ -31,6 +31,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
       showDateDisplay={false}
       minDate={new Date()}
       disabledDates={disabledDates}
+      // moveRangeOnFirstSelection={false}
+      // editableDateInputs={true}
     />
    );
 }
