@@ -5,11 +5,11 @@
 import { BiSearch } from 'react-icons/bi';
 // import { differenceInDays } from 'date-fns';
 
-// import useSearchModal from '@/app/hooks/useSearchModal';
+import useSearchModal from '@/app/hooks/useSearchModal';
 // import useCountries from '@/app/hooks/useCountries';
 
 const Search = () => {
-  // const searchModal = useSearchModal();
+  const searchModal = useSearchModal();
   // const params = useSearchParams();
   // const { getByValue } = useCountries();
 
@@ -52,7 +52,7 @@ const Search = () => {
 
   return ( 
     <div
-      onClick={() => {}}
+      onClick={searchModal.onOpen}
       className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer"
     >
       <div 
