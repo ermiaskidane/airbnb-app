@@ -41,6 +41,7 @@ const Modal: React.FC<ModalProps> = ({
       return;
     }
   
+    // console.log("disabled", disabled)
     setShowModal(false);
     setTimeout(() => {
       onClose();

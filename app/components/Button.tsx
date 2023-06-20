@@ -19,6 +19,8 @@ const Button: React.FC<ButtonProps> = ({
   small,
   icon: Icon,
 }) => {
+  console.log("disable button", disabled)
+  console.log("action label", label)
   return ( 
     <button
       disabled={disabled}
