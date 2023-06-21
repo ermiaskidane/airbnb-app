@@ -102,7 +102,7 @@ export const categories = [
 const Categories = () => {
   const params = useSearchParams();
   // extract the category params and limit this only
-  // on under pathname of "/" (want be displayed on other pages)
+  // on under pathname of "/" (won't be displayed on other pages)
   const category = params?.get('category');
   const pathname = usePathname();
   const isMainPage = pathname === '/';

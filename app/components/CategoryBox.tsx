@@ -34,7 +34,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     }
 
     // check new category is selected if it does delete 
-    // from updatedQuery in order to unselected(it like toggle the category)
+    // from updatedQuery in order to unselected(it's like toggle the category)
     if (params?.get('category') === label) {
       delete updatedQuery.category;
     }
