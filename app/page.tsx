@@ -47,7 +47,7 @@ const Home = async () => {
               data={listing}
             />
           ))}
-        </div>
+        </div> 
       </Container>
     </ClientOnly>
   )
