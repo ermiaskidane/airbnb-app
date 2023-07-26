@@ -1,4 +1,4 @@
-
+ 
 // next-auth is not compitable with nextjs 13 so we using the pages api here
 // sooner could be updated and placed inside app directory
 import bcrypt from "bcrypt"

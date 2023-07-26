@@ -88,6 +88,6 @@ const Input: React.FC<InputProps> = ({
       </label>
     </div>
    );
-}
+} 
  
 export default Input;

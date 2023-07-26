@@ -62,6 +62,6 @@ const ListingHead: React.FC<ListingHeadProps> = ({
       </div>
     </>
    );
-}
+} 
  
 export default ListingHead;

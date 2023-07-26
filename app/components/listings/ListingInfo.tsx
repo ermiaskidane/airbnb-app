@@ -9,6 +9,7 @@ import { SafeUser } from "@/app/types";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 
+// acts like lazy loading in reactjs
 const Map = dynamic(() => import('../Map'), { 
   ssr: false 
 });
